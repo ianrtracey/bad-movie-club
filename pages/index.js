@@ -1,6 +1,30 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import styles from '../styles/Home.module.css'
+import {
+  Button,
+  Heading,
+  Text,
+  Box,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+} from "@chakra-ui/react"
+import { useSpring } from '@react-spring/web'
+
+const CenteredBox = ({ children }) => (
+  <Box display="flex" flexDirection="column" alignItems="center">
+    {children}
+  </Box>
+)
+
+const JoinForm = () => (
+  <FormControl id="first-name" isRequired>
+    <FormLabel>Your Name</FormLabel>
+    <Input placeholder="Rupert Pupkin" />
+  </FormControl>
+)
 
 export default function Home() {
   return (
@@ -12,48 +36,24 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <Box padding={10} background="white" sx={{
+          borderRadius: '20px'
+        }}>
+          <CenteredBox>
+            <Heading>The Bad Movie Club</Heading>
+            <Text fontSize="xl">NYC Summer 2021</Text>
+            <Text fontSize="lg">Every 1st Thursday</Text>
+          </CenteredBox>
+          <Box marginTop={5}>
+            <CenteredBox>
+              <JoinForm />
+            </CenteredBox>
+          </Box>
+        </Box>
       </main>
 
       <footer className={styles.footer}>
-        <a
+        {/* <a
           href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
           target="_blank"
           rel="noopener noreferrer"
@@ -62,8 +62,8 @@ export default function Home() {
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
-        </a>
+        </a> */}
       </footer>
-    </div>
+    </div >
   )
 }
