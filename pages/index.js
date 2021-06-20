@@ -20,12 +20,22 @@ const CenteredBox = ({ children }) => (
 )
 
 const JoinForm = () => (
-  <FormControl id="first-name" isRequired>
-    <FormLabel>Your Name</FormLabel>
-    <Input placeholder="Rupert Pupkin" />
+  <FormControl id="first-name">
+    <Box>
+      <FormLabel>Name</FormLabel>
+      <Input placeholder="Rupert Pupkin" />
+    </Box>
+    <Box marginTop={3}>
+      <FormLabel>Phone</FormLabel>
+      <Input placeholder="6238662766" />
+    </Box>
+    <Box marginTop={3} float="right" aria-disabled={true}>
+      <Button colorScheme="red">Join</Button>
+    </Box>
   </FormControl>
 )
 
+// 
 export default function Home() {
   return (
     <div className={styles.container}>
